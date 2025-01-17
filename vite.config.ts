@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "~shadcn-packaged": path.resolve(__dirname, "./~shadcn-packaged"),
     },
   },
 })

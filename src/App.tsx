@@ -1,4 +1,4 @@
-import { Button } from "./shadcn/ui/button"
+import { Button } from '~shadcn-packaged/ui/button'
 
 function App() {
 

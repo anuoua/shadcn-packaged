@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
-  "rsc": false,
+  "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.js",
@@ -11,11 +11,11 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/shadcn",
-    "utils": "@/shadcn/lib/utils",
-    "ui": "@/shadcn/ui",
-    "lib": "@/shadcn/lib",
-    "hooks": "@/shadcn/hooks"
+    "components": "~shadcn-packaged",
+    "utils": "~shadcn-packaged/lib/utils",
+    "ui": "~shadcn-packaged/ui",
+    "lib": "~shadcn-packaged/lib",
+    "hooks": "~shadcn-packaged/hooks"
   },
   "iconLibrary": "lucide"
 }

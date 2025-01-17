@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "pnpm shadcn:generate && pnpm shadcn:modify",
+    "shadcn:generate": "pnpm dlx shadcn@latest add -a -y -o",
+    "shadcn:modify": "node ./modify.mjs"
   },
   "exports": {
-    "./*": "./src/shadcn/ui/*",
-    "./utils/*": "./src/shadcn/lib/utils/*",
-    "./hooks/*": "./src/shadcn/lib/hooks/*"
+    "./*": ["./~shadcn-packaged/ui/*.ts", "./~shadcn-packaged/ui/*.tsx"],
+    "./lib/*": ["./~shadcn-packaged/lib/*.ts", "./~shadcn-packaged/lib/*.tsx"],
+    "./hooks/*": ["./~shadcn-packaged/hooks/*.ts", "./~shadcn-packaged/hooks/*.tsx"]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
