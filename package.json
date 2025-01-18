@@ -1,16 +1,16 @@
 {
   "name": "shadcn-packaged",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "npm run shadcn:clean && npm run shadcn:generate && npm run shadcn:tsc && npm run shadcn:move",
     "shadcn:clean": "rm -rf lib ui hooks dist ~shadcn-packaged/hooks ~shadcn-packaged/ui",
     "shadcn:generate": "npx shadcn@latest add -a -y -o && node ./modify.mjs",
-    "shadcn:tsc": "tsc -p tsconfig.json && node ./types.mjs",
-    "shadcn:move": "mv dist/* ./",
-    "postinstall": "npm install tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react"
+    "shadcn:tsc": "npm run shadcn:tsc:preinstall && tsc -p tsconfig.json && node ./types.mjs",
+    "shadcn:tsc:preinstall": "npm install -D tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react",
+    "shadcn:move": "mv dist/* ./"
   },
   "types": "index.d.ts",
   "files": [
