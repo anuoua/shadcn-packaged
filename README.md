@@ -42,7 +42,7 @@ const nextConfig = {
 export default nextConfig;
 ```
 
-vite [#optimizedeps-include](https://cn.vitejs.dev/config/dep-optimization-options.html#optimizedeps-include)
+vite.config.js [#optimizedeps-include](https://cn.vitejs.dev/config/dep-optimization-options.html#optimizedeps-include)
 
 ```javascript
 export default defineConfig({
@@ -54,9 +54,21 @@ export default defineConfig({
 
 ## Usage
 
+Package Struct
+
 - shadcn-packaged/ui/*: components
 - shadcn-packaged/hooks/*: hooks
 - shadcn-packaged/lib/utils: utils
+
+Import style
+
+> If you have a fully customized style in tailwindcss entry, you don't need to import it
+
+```javascript
+import "shadcn-packaged/index.css";
+```
+
+Import code
 
 ```javascript
 import { Button } from 'shadcn-packaged/ui/button';
@@ -74,7 +86,23 @@ This package support vscode auto import, add below code to project main.tsx or r
 
 ## Custom Theme
 
-to do...
+index.css | global.css (the tailwindcss entry)
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* theme here */
+  }
+
+  .dark {
+    /* theme here */
+  }
+}
+```
 
 ## License
 
