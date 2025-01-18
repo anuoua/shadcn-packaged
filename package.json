@@ -5,15 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm shadcn:generate && pnpm shadcn:modify",
-    "shadcn:generate": "pnpm dlx shadcn@latest add -a -y -o",
-    "shadcn:modify": "node ./modify.mjs"
+    "build": "npm run shadcn:generate && npm run shadcn:tsc && npm run shadcn:move",
+    "shadcn:generate": "npx shadcn@latest add -a -y -o && node ./modify.mjs",
+    "shadcn:tsc": "tsc -p tsconfig.json && node ./types.mjs",
+    "shadcn:move": "mv dist/* ./"
   },
-  "exports": {
-    "./*": ["./~shadcn-packaged/ui/*.ts", "./~shadcn-packaged/ui/*.tsx"],
-    "./lib/*": ["./~shadcn-packaged/lib/*.ts", "./~shadcn-packaged/lib/*.tsx"],
-    "./hooks/*": ["./~shadcn-packaged/hooks/*.ts", "./~shadcn-packaged/hooks/*.tsx"]
-  },
+  "types": "index.d.ts",
+  "files": [
+    "ui",
+    "hooks",
+    "lib",
+    "index.d.ts",
+    "tailwind.config.js"
+  ],
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.2",
@@ -45,15 +49,13 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "1.0.0",
+    "cmdk": "^1.0.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.2",
     "input-otp": "^1.4.2",
-    "lucide-react": "^0.471.1",
+    "lucide-react": "^0.473.0",
     "next-themes": "^0.4.4",
-    "react": "^18.3.1",
-    "react-day-picker": "8.10.1",
-    "react-dom": "^18.3.1",
+    "react-day-picker": "^8.10.1",
     "react-hook-form": "^7.54.2",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.0",
@@ -64,20 +66,11 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.17.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
-    "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "typescript": "~5.6.2"
   }
 }

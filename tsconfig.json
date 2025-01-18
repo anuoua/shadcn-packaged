@@ -1,13 +1,13 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~shadcn-packaged/*": ["~shadcn-packaged/*"]
-    }
-  }
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "outDir": "dist",
+    "jsx": "preserve",
+    "baseUrl": "./"
+  },
+  "include": ["~shadcn-packaged"]
 }
