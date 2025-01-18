@@ -16,7 +16,8 @@
     "hooks",
     "lib",
     "index.d.ts",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "index.css"
   ],
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
