@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Shadcn Packaged
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a package of all [shadcn/ui](https://ui.shadcn.com/) components without CLI for easy use. 
 
-Currently, two official plugins are available:
+It simply exports all the useful files with type declaration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pre work
 
-## Expanding the ESLint configuration
+1. Create a new react project.
+2. [Get started with Tailwind CSS](https://tailwindcss.com/docs/installation).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Install
 
-- Configure the top-level `parserOptions` property like this:
+```shell
+npm i tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react
+npm i shadcn-packaged
+```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+## Configuation
+
+tailwind.config.js
+
+```javascript
+const config = {
+  content: [
+    "...",
+    "./node_modules/shadcn-packaged/**/*.{jsx,js,ts,tsx}",
+  ],
+  presets: [require("shadcn-packaged/tailwind.config")],
+};
+export default config;
+```
+
+next.config.js
+
+```javascript
+const nextConfig = {
+  // ...
+  transpilePackages: ["shadcn-packaged"],
+};
+
+export default nextConfig;
+```
+
+vite [#optimizedeps-include](https://cn.vitejs.dev/config/dep-optimization-options.html#optimizedeps-include)
+
+```javascript
+export default defineConfig({
+  optimizeDeps: {
+    include: ['shadcn-packaged/**/*.{js,jsx,ts,tsx}'],
   },
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- shadcn-packaged/ui/*: components
+- shadcn-packaged/hooks/*: hooks
+- shadcn-packaged/lib/utils: utils
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```javascript
+import { Button } from 'shadcn-packaged/ui/button';
+import { cn } from 'shadcn-packaged/lib/utils';
+import { useToast } from 'shadcn/hooks/use-toast';
 ```
+
+## Type declaration and IDE auto import
+
+This package support vscode auto import, add below code to project main.tsx or root layout.tsx in NextJS
+
+```typescript
+/// <reference types="shadcn-packaged" />
+```
+
+## Custom Theme
+
+to do...
+
+## License
+
+MIT anuoua
