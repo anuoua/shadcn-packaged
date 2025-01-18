@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  build:
+  push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,3 +14,4 @@ jobs:
           git config user.email "action-bot@github.com"
           npm version $(date +%Y.%m.%d)
           git push
+          git push --tags
