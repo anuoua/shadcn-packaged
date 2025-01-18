@@ -1,0 +1,16 @@
+name: Daily
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config user.name "Action Bot"
+          git config user.email "action-bot@github.com"
+          npm version $(date +%Y.%m.%d)
+          git push
