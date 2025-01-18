@@ -1,6 +1,6 @@
 # Shadcn Packaged
 
-This is a package of all [shadcn/ui](https://ui.shadcn.com/) components without CLI for easy use. 
+This is a npm package of all [shadcn/ui](https://ui.shadcn.com/) components without CLI for easy use. 
 
 It simply exports all the useful files with type declaration.
 
