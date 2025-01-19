@@ -24,14 +24,14 @@ tailwind.config.js
 const config = {
   content: [
     "...",
-    "./node_modules/shadcn-packaged/**/*.{jsx,js,ts,tsx}",
+    "./node_modules/shadcn-packaged/**/*.{jsx,js,ts,tsx}"
   ],
-  presets: [require("shadcn-packaged/tailwind.config")],
+  presets: [require("shadcn-packaged/tailwind.config")]
 };
 export default config;
 ```
 
-next.config.js
+For nextjs user, next.config.js
 
 ```javascript
 const nextConfig = {
@@ -42,7 +42,7 @@ const nextConfig = {
 export default nextConfig;
 ```
 
-vite.config.js [#optimizedeps-include](https://cn.vitejs.dev/config/dep-optimization-options.html#optimizedeps-include)
+For vite user, vite.config.js
 
 ```javascript
 export default defineConfig({
@@ -53,12 +53,6 @@ export default defineConfig({
 ```
 
 ## Usage
-
-Package Struct
-
-- shadcn-packaged/ui/*: components
-- shadcn-packaged/hooks/*: hooks
-- shadcn-packaged/lib/utils: utils
 
 Import style
 
@@ -76,17 +70,38 @@ import { cn } from 'shadcn-packaged/lib/utils';
 import { useToast } from 'shadcn/hooks/use-toast';
 ```
 
+Package Struct
+
+- shadcn-packaged/ui/*: components
+- shadcn-packaged/hooks/*: hooks
+- shadcn-packaged/lib/utils: utils
+
 ## Type declaration and IDE auto import
 
-This package support vscode auto import, add below code to project main.tsx or root layout.tsx in NextJS
+This package support vscode auto import.
+
+If the automatic code import does not take effect, please try the following methods.
+
+1. add below code to project main.tsx or root layout.tsx in NextJS.
 
 ```typescript
 /// <reference types="shadcn-packaged" />
 ```
 
+2. change tsconig.json
+
+```json
+{
+  "compilerOptions": {
+    // append to exist types
+    "types": ["...", "./node_modules/shadcn-packaged/**/*.ts"] 
+  }
+}
+```
+
 ## Custom Theme
 
-index.css | global.css (the tailwindcss entry)
+index.css | global.css (the global entry css file)
 
 ```css
 @tailwind base;
