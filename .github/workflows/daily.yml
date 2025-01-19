@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          token: ${{ secrets.PAT }}
       - run: |
-          git config user.name "Action Bot"
-          git config user.email "action-bot@github.com"
+          git config user.name "anuoua"
+          git config user.email "anuoua@gmail.com"
           npm version $(date +%Y.%m.%d)
           git push
           git push --tags
