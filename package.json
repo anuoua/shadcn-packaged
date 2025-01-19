@@ -3,6 +3,7 @@
   "private": false,
   "version": "2025.1.18",
   "type": "module",
+  "module": "index.mjs",
   "scripts": {
     "dev": "vite",
     "build": "npm run shadcn:clean && npm run shadcn:generate && npm run shadcn:tsc && npm run shadcn:move",
@@ -19,7 +20,8 @@
     "lib",
     "index.d.ts",
     "tailwind.config.js",
-    "index.css"
+    "index.css",
+    "index.mjs"
   ],
   "dependencies": {},
   "devDependencies": {
