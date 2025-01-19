@@ -56,7 +56,7 @@ export default defineConfig({
 
 Import style
 
-> If you have a fully customized style in tailwindcss entry, you don't need to import it
+> If you have a fully customized style in global entry css file, you don't need to import it
 
 ```javascript
 import "shadcn-packaged/index.css";
