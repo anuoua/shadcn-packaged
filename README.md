@@ -4,6 +4,8 @@ This is an npm package that exports all [shadcn/ui](https://ui.shadcn.com/) comp
 
 It simply provides all useful files along with type declarations.
 
+Weekly publish latest version components to npm.
+
 ## Pre work
 
 1. Create a new react project.
