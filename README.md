@@ -1,5 +1,7 @@
 # Shadcn Packaged
 
+> Tailwindcss V4 not tested, please use v3
+
 This is an npm package that exports all [shadcn/ui](https://ui.shadcn.com/) components without the need for a CLI, designed for ease of use. 
 
 It simply provides all useful files along with type declarations.
