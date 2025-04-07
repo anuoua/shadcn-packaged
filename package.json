@@ -1,7 +1,7 @@
 {
   "name": "shadcn-packaged",
   "private": false,
-  "version": "2025.3.31",
+  "version": "2025.4.7",
   "type": "module",
   "module": "index.mjs",
   "scripts": {
