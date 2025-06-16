@@ -7,7 +7,10 @@
     "declaration": true,
     "outDir": "dist",
     "jsx": "preserve",
-    "baseUrl": "./"
+    "baseUrl": ".",
+    "paths": {
+      "~shadcn-packaged/*": ["~shadcn-packaged/*"]
+    }
   },
   "include": ["~shadcn-packaged"]
 }
