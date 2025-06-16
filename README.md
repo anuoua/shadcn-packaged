@@ -1,7 +1,5 @@
 # Shadcn Packaged
 
-> Tailwindcss V4 not tested, please use v3
-
 This is an npm package that exports all [shadcn/ui](https://ui.shadcn.com/) components without the need for a CLI, designed for ease of use. 
 
 It simply provides all useful files along with type declarations.
@@ -16,24 +14,11 @@ Weekly publish latest version components to npm.
 ## Install
 
 ```shell
-npm i tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react
+npm i class-variance-authority clsx tailwind-merge lucide-react tw-animate-css
 npm i shadcn-packaged
 ```
 
 ## Configuation
-
-tailwind.config.js
-
-```javascript
-const config = {
-  content: [
-    "...",
-    "./node_modules/shadcn-packaged/**/*.{jsx,js,ts,tsx}"
-  ],
-  presets: [require("shadcn-packaged/tailwind.config")]
-};
-export default config;
-```
 
 For nextjs user, next.config.js
 
@@ -58,12 +43,16 @@ export default defineConfig({
 
 ## Usage
 
-Import style
+Import default style
 
-> If you have a fully customized style in global entry css file, you don't need to import it
+> If you have a fully customized style in global entry css file, see [Custom Theme](#custom-theme), you don't need to import it
 
-```javascript
-import "shadcn-packaged/index.css";
+The global entry css file, `index.css` | `global.css`
+
+```css
+@import "shadcn-packaged/index.css";
+/* source detection, according to the actual path specified */
+@source "../node_modules/shadcn-packaged";
 ```
 
 Import code
@@ -105,21 +94,31 @@ If the automatic code import does not take effect, please try the following meth
 
 ## Custom Theme
 
-index.css | global.css (the global entry css file)
+The global entry css file, `index.css` | `global.css`, more detail see [shadcn theme](https://ui.shadcn.com/docs/theming)
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* source detection, according to the actual path specified */
+@source "../node_modules/shadcn-packaged";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  ...
+}
+
+.dark {
+  ...
+}
+
+@theme inline {
+  ...
+}
 
 @layer base {
-  :root {
-    /* theme here */
-  }
-
-  .dark {
-    /* theme here */
-  }
+  ...
 }
 ```
 
