@@ -50,6 +50,7 @@ Import default style
 The global entry css file, `index.css` | `global.css`
 
 ```css
+/* "shadcn-packaged/index.css" includes `@import "tailwindcss"` */
 @import "shadcn-packaged/index.css";
 /* source detection, according to the actual path specified */
 @source "../node_modules/shadcn-packaged";
@@ -97,9 +98,8 @@ If the automatic code import does not take effect, please try the following meth
 The global entry css file, `index.css` | `global.css`, more detail see [shadcn theme](https://ui.shadcn.com/docs/theming)
 
 ```css
-@import "tailwindcss";
-@import "tw-animate-css";
-
+/* "shadcn-packaged/index.css" includes `@import "tailwindcss"` */
+@import "shadcn-packaged/index.css";
 /* source detection, according to the actual path specified */
 @source "../node_modules/shadcn-packaged";
 
