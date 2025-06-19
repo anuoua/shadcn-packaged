@@ -47,7 +47,7 @@ export default defineConfig({
 
 Import default style
 
-> If you have a fully customized style in global entry css file, see [Custom Theme](#custom-theme), you don't need to import it
+> If you have a fully customized style in global entry css file, see [Custom Theme](#custom-theme).
 
 The global entry css file, `index.css` | `global.css`
 
