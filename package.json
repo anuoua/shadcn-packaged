@@ -2,7 +2,7 @@
   "name": "shadcn-packaged",
   "private": false,
   "license": "MIT",
-  "version": "2026.8.24",
+  "version": "2026.8.31",
   "type": "module",
   "module": "index.mjs",
   "scripts": {
